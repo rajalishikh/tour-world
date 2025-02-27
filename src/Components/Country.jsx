@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import { useState } from 'react';
 import "../App.css";
 
-const Country = ({country_details,import_handleVisited}) => {
+const Country = ({country_details,import_handleVisited,import_flag}) => {
+    console.log(country_details)
     
     const {name,flags}=country_details
     const [visited,setVisited]=useState(false)
@@ -16,6 +17,7 @@ const Country = ({country_details,import_handleVisited}) => {
         <img src={flags.png} alt="Country Flags Name" width="200px" /><br />
         <button onClick={handleVisited}>{visited?"Going":"Visited"}</button>
         <button onClick={()=>import_handleVisited(country_details)}>Mark Visited</button>
+        <button onClick={()=>import_flag(country_details.coatOfArms.png)}>Add Flag</button>
         <p>{visited?"The country visiting is complete":"I am not gone this country any Time"}</p>
         
     </div>
@@ -27,5 +29,6 @@ export default Country;
 // default p[rop types
 Country.propTypes={
     country_details:PropTypes.object.isRequired,
-    import_handleVisited:PropTypes.func.isRequired
+    import_handleVisited:PropTypes.func.isRequired,
+    import_flag:PropTypes.func.isRequired
 }
