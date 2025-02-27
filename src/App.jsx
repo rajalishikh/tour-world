@@ -3,10 +3,9 @@ import Countries from './Components/Countries'
 
 function App() {
   
+  
   return (
     <>
-      
-      
       <Countries></Countries>
       
     </>
